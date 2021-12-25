@@ -57,8 +57,7 @@ def ping(destination_address, icmp_socket, ttl):
 
     if socket_response[0] == []:
         print('ttl: {0}\t resp_time: {1} ms\t***\t(Timeout, ttl+=1)'.
-              format(ttl,
-                     int((time.time() - timeout_first_timestamp) * 1000)))
+              format(ttl, int((time.time() - timeout_first_timestamp) * 1000)))
         return False
 
     smth, (got_ip, port) = icmp_socket.recvfrom(128)
@@ -99,7 +98,6 @@ def main():
         ttl = 1
         icmp_protocol = socket.getprotobyname("icmp")
         while(ttl < max_ttl):
-
             
             icmp_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp_protocol)
             if (ping(destination_address, icmp_socket, ttl)):
