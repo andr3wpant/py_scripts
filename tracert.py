@@ -89,9 +89,7 @@ def main():
     else:
 
         destination_host = sys.argv[1]
-
         destination_address = socket.gethostbyname(destination_host)
-
         print("tracert to {0} ({1}) with maximum {2} hops".
               format(destination_address, destination_host, max_ttl))
 
